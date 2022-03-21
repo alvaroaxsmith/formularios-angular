@@ -1,0 +1,99 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Cadastre-se</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        action="#"
+        id="main-form"
+        (ngSubmit)="submit()"
+        #form="ngForm"
+      >
+        <div class="form-row">
+          <mat-form-field appearance="fill" >
+            <mat-label>Nome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Seu nome..."
+                [(ngModel)]="name"
+                name="name"
+                autocomplete="false"
+                required
+                minlength="3"
+                #inputName="ngModel"
+              >
+              <mat-error *ngIf="inputName.invalid">
+                <span *ngIf="inputName.errors?.['minlength']" >
+                  (mínimo 3 caracteres)
+                </span>
+                <span *ngIf="inputName.errors?.['required']" >
+                  Este campo é obrigatorio.
+                </span>
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill" >
+            <mat-label>Sobrenome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Seu sobrenome..."
+                [(ngModel)]="lastName"
+                name="lastName"
+                autocomplete="false"
+                required
+                minlength="3"
+                #inputLastName="ngModel"
+              >
+              <mat-error>
+                <span *ngIf="inputLastName.errors?.['required']" >
+                  Este campo é obrigatorio.
+                </span>
+                <span *ngIf="inputLastName.errors?.['minlength']" >
+                  (mínimo 3 caracteres)
+                </span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>E-mail</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="email@email.com"
+                [(ngModel)]="email"
+                name="email"
+                autocomplete="false"
+                required
+                minlength="8"
+                #inputEmail="ngModel"
+                email
+              >
+              <mat-error>
+                <span *ngIf="inputEmail.errors?.['required']" >
+                  Este campo é obrigatorio.
+                </span>
+                <span *ngIf="inputEmail.errors?.['minlength']" >
+                  (mínimo 8 caracteres)
+                </span>
+                <span *ngIf="inputEmail.errors?.['email']" >
+                  Isto não é um e-mail.
+                </span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            class="grow"
+            [disabled]="form.invalid"
+          >Cadastrar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
