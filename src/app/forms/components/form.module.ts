@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "src/app/material.module";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { TemplateDrivenFormComponent } from "./template-driven-form/template-driven-form.component";
+import { FormsDialogComponent } from './forms-dialog/forms-dialog.component';
 
 @NgModule({
   declarations: [
     ReactiveFormComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    FormsDialogComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { TemplateDrivenFormComponent } from "./template-driven-form/template-dri
   ],
   exports: [
     ReactiveFormComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    FormsDialogComponent
   ],
   providers: [
 

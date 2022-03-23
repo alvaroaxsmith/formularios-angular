@@ -6,7 +6,8 @@
     </mat-card-header>
     <mat-card-content>
       <form action="#" id="main-form" (ngSubmit)="submit()">
-        <div class="form-row">
+
+        <div class="input-nome">
           <mat-form-field appearance="fill" >
             <mat-label>Nome</mat-label>
               <input
@@ -15,8 +16,19 @@
                 placeholder="nome"
                 [(ngModel)]="usuario.nome"
                 name="nome"
+                required minlength="1"
+                required maxlength="50"
+                #inpNome="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpNome.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpNome.errors?.['minlength']">Você digitou menos de 1 caráctere.</span>
+                <span *ngIf="inpNome.errors?.['maxlength']">Você digitou mais de 50 carácteres.</span>
+              </mat-error>
           </mat-form-field>
+        </div>
+
+        <div class="input-sobrenome inp">
           <mat-form-field appearance="fill" >
             <mat-label>Sobrenome</mat-label>
               <input
@@ -24,23 +36,41 @@
                 matInput
                 placeholder="Sobrenome"
                 [(ngModel)]="usuario.sobrenome"
-                name="nome"
+                name="sobrenome"
+                required minlength="1"
+                required maxlength="50"
+                #inpSobrenome="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpSobrenome.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpSobrenome.errors?.['minlength']">Você digitou menos de 1 caráctere.</span>
+                <span *ngIf="inpSobrenome.errors?.['maxlength']">Você digitou mais de 50 carácteres.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-username inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>Username</mat-label>
               <input
                 type="text"
                 matInput
-                placeholder="username"
+                placeholder="De 8 a 20 carácteres"
                 [(ngModel)]="usuario.username"
-                name="nome"
+                name="username"
+                required minlength="8"
+                required maxlength="20"
+                #inpUsername="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpUsername.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpUsername.errors?.['minlength']">Você digitou menos de 8 caráctere.</span>
+                <span *ngIf="inpUsername.errors?.['maxlength']">Você digitou mais de 20 carácteres.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-cpf inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>CPF</mat-label>
               <input
@@ -48,35 +78,58 @@
                 matInput
                 placeholder="Somente Números"
                 [(ngModel)]="usuario.cpf"
-                name="nome"
+                name="cpf"
+                required minlength="11"
+                #inpCpf="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpCpf.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpCpf.errors?.['minlength']">Você digitou menos de 11 caráctere.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-telefone inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>Telefone</mat-label>
               <input
-                type="number"
+                type="tel"
                 matInput
-                placeholder="Somente Números"
+                placeholder="Digite apenas os números com o ddd"
                 [(ngModel)]="usuario.telefone"
-                name="nome"
+                name="telefone"
+                required minlength="10"
+                required maxlength="15"
+                #inpTel="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpTel.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpTel.errors?.['minlength']">Você digitou menos de 10 caráctere.</span>
+                <span *ngIf="inpTel.errors?.['maxlength']">Você digitou menos de 15 caráctere.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-endereco inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>Endereço</mat-label>
               <input
                 type="text"
                 matInput
-                placeholder="Seu Endereço"
+                placeholder="Digite seu Endereço"
                 [(ngModel)]="usuario.endereco"
-                name="nome"
+                name="endereco"
+                required maxlength="150"
+                #inpEnde="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpEnde.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpEnde.errors?.['maxlength']">Você digitou mais de 150 caráctere.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-complemento inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>Complemento</mat-label>
               <input
@@ -84,36 +137,75 @@
                 matInput
                 placeholder="Complemento"
                 [(ngModel)]="usuario.complemento"
-                name="nome"
+                name="complemento"
+                required maxlength="150"
+                #inpComp="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpComp.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpComp.errors?.['maxlength']">Você digitou mais de 150 caráctere.</span>
+              </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-senha inp">
           <mat-form-field appearance="fill" class="grow">
             <mat-label>Senha</mat-label>
               <input
-                type="text"
+                type="password"
                 matInput
-                placeholder="Digite sua senha"
+                placeholder="Digite uma senha de 8 a 30 carácteres"
                 [(ngModel)]="usuario.senha"
-                name="nome"
+                name="senha"
+                required minlength="8"
+                required maxlength="30"
+                #inpSenha="ngModel"
               >
+            <mat-error>
+              <span *ngIf="inpSenha.errors?.['required']">Preencha este campo.</span>
+              <span *ngIf="inpSenha.errors?.['minlength']">Você digitou menos de 8 carácteres.</span>
+              <span *ngIf="inpSenha.errors?.['maxlength']">Você digitou mais de 30 carácteres.</span>
+              <span *ngIf="inpSenha.value != inpSenhaConfirm.value">As senhas devem ser iguais.</span>
+            </mat-error>
           </mat-form-field>
         </div>
-        <div class="form-row col">
+
+        <div class="input-senhaConfirma inp">
           <mat-form-field appearance="fill" class="grow">
-            <mat-label>Senha</mat-label>
+            <mat-label>Confirmação da Senha</mat-label>
               <input
-                type="text"
+                type="password"
                 matInput
-                placeholder="Digite sua senha"
-                [(ngModel)]="usuario.senha2"
-                name="nome"
+                placeholder="Confirme sua senha"
+                [(ngModel)]="usuario.senhaConfirma"
+                name="senha"
+                required minlength="8"
+                required maxlength="30"
+                #inpSenhaConfirm="ngModel"
               >
+              <mat-error>
+                <span *ngIf="inpSenhaConfirm.errors?.['required']">Preencha este campo.</span>
+                <span *ngIf="inpSenhaConfirm.errors?.['minlength']">Você digitou menos de 8 carácteres.</span>
+                <span *ngIf="inpSenhaConfirm.errors?.['maxlength']">Você digitou mais de 30 carácteres.</span>
+                <span *ngIf="inpSenha.value != inpSenhaConfirm.value">As senhas devem ser iguais.</span>
+              </mat-error>
           </mat-form-field>
         </div>
+
         <div class="form-row col">
-          <button mat-raised-button type="submit" color="primary" class="grow">Cadastrar</button>
+          <button
+          mat-raised-button
+          (click)="showDialog()"
+          type="submit"
+          color="primary"
+          class="grow"
+          [disabled]="inpNome.invalid || inpSobrenome.invalid || inpUsername.invalid ||
+          inpCpf.invalid || inpEnde.invalid || inpComp.invalid || inpTel.invalid ||
+          inpSenha.invalid || inpSenhaConfirm.invalid || inpSenha.value !=
+          inpSenhaConfirm.value"
+          >
+          Cadastrar
+        </button>
         </div>
       </form>
     </mat-card-content>

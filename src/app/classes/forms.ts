@@ -7,9 +7,9 @@ export class User {
   sobrenome: string = ''
   username: string = ''
   cpf: string = ''
-  telefone: number = 0
+  telefone: string = ''
   endereco: string = ''
   complemento: string = ''
   senha: string = ''
-  senha2: string = ''
+  senhaConfirma: string = ''
 }
