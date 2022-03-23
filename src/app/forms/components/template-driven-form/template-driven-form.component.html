@@ -1,0 +1,121 @@
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Template Driven Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form action="#" id="main-form" (ngSubmit)="submit()">
+        <div class="form-row">
+          <mat-form-field appearance="fill" >
+            <mat-label>Nome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="nome"
+                [(ngModel)]="usuario.nome"
+                name="nome"
+              >
+          </mat-form-field>
+          <mat-form-field appearance="fill" >
+            <mat-label>Sobrenome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Sobrenome"
+                [(ngModel)]="usuario.sobrenome"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Username</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="username"
+                [(ngModel)]="usuario.username"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>CPF</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="Somente Números"
+                [(ngModel)]="usuario.cpf"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Telefone</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="Somente Números"
+                [(ngModel)]="usuario.telefone"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Endereço</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Seu Endereço"
+                [(ngModel)]="usuario.endereco"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Complemento</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Complemento"
+                [(ngModel)]="usuario.complemento"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Senha</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Digite sua senha"
+                [(ngModel)]="usuario.senha"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Senha</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Digite sua senha"
+                [(ngModel)]="usuario.senha2"
+                name="nome"
+              >
+          </mat-form-field>
+        </div>
+        <div class="form-row col">
+          <button mat-raised-button type="submit" color="primary" class="grow">Cadastrar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

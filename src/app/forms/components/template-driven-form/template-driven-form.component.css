@@ -1,0 +1,8 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-card {
+  width: 12.5rem;
+}
