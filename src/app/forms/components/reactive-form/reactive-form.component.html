@@ -1,1 +1,189 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Reactive Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+      action="#"
+      id="main-form"
+      (ngSubmit)="submit()"
+      [formGroup]="rForm"
+      >
 
+        <div class="input-nome">
+          <mat-form-field appearance="fill" >
+            <mat-label>Nome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Digite seu nome"
+                autocomplete="off"
+                formControlName="nome"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['nome'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['nome'].getError('minlength')">Você digitou menos de 1 caráctere.</span>
+                <span *ngIf="rForm.controls['nome'].getError('maxlength')">Você digitou mais de 50 carácteres.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-sobrenome inp">
+          <mat-form-field appearance="fill" >
+            <mat-label>Sobrenome</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Digite seu sobrenome"
+                autocomplete="off"
+                formControlName="sobrenome"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['sobrenome'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['sobrenome'].getError('minlength')">Você digitou menos de 1 caráctere.</span>
+                <span *ngIf="rForm.controls['sobrenome'].getError('maxlength')">Você digitou mais de 50 carácteres.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-username inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Username</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="De 8 a 20 carácteres"
+                autocomplete="off"
+                formControlName="username"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['username'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['username'].getError('minlength')">Você digitou menos de 8 caráctere.</span>
+                <span *ngIf="rForm.controls['username'].getError('maxlength')">Você digitou mais de 20 carácteres.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-cpf inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>CPF</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="Somente Números"
+                autocomplete="off"
+                formControlName="cpf"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['cpf'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['cpf'].getError('minlength')">Você digitou menos de 11 caráctere.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-telefone inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Telefone</mat-label>
+              <input
+                type="tel"
+                matInput
+                placeholder="Digite apenas os números com o ddd"
+                autocomplete="off"
+                formControlName="telefone"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['telefone'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['telefone'].getError('minlength')">Você digitou menos de 10 caráctere.</span>
+                <span *ngIf="rForm.controls['telefone'].getError('maxlength')">Você digitou mais de 15 caráctere.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-endereco inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Endereço</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Digite seu Endereço"
+                autocomplete="off"
+                formControlName="endereco"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['endereco'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['endereco'].getError('maxlength')">Você digitou mais de 150 caráctere.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-complemento inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Complemento</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Complemento"
+                autocomplete="off"
+                formControlName="complemento"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['complemento'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['complemento'].getError('maxlength')">Você digitou mais de 150 caráctere.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-senha inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Senha</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="Digite uma senha de 8 a 30 carácteres"
+                autocomplete="off"
+                formControlName="senha"
+              >
+            <mat-error>
+              <span *ngIf="rForm.controls['senha'].getError('required')">Preencha este campo.</span>
+              <span *ngIf="rForm.controls['senha'].getError('minlength')">Você digitou menos de 8 carácteres.</span>
+              <span *ngIf="rForm.controls['senha'].getError('maxlength')">Você digitou mais de 30 carácteres.</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-senhaConfirma inp">
+          <mat-form-field appearance="fill" class="grow">
+            <mat-label>Confirmação da Senha</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="Confirme sua senha"
+                autocomplete="off"
+                formControlName="senha"
+              >
+              <mat-error>
+                <span *ngIf="rForm.controls['senhaConfirma'].getError('required')">Preencha este campo.</span>
+                <span *ngIf="rForm.controls['senhaConfirma'].getError('minlength')">Você digitou menos de 8 carácteres.</span>
+                <span *ngIf="rForm.controls['senhaConfirma'].getError('maxlength')">Você digitou mais de 30 carácteres.</span>
+                <span *ngIf="rForm.controls['senha'].value != rForm.controls['senhaConfirma'].value">As senhas devem ser iguais.</span>
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row col">
+          <button
+          mat-raised-button
+          (click)="mostrarDialog()"
+          type="submit"
+          color="primary"
+          class="grow"
+          [disabled]="rForm.invalid"
+          >
+          Cadastrar
+        </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
